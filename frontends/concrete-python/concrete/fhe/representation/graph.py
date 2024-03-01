@@ -591,6 +591,9 @@ class Graph:
             if line.startswith("max"):
                 # we won't have 4 million nodes...
                 return 2**32
+            if line.startswith("input_output"):
+                # this is the composable constraint
+                return 2**32
 
             assert line.startswith("%")
 
@@ -967,6 +970,7 @@ class Graph:
 class GraphProcessor(ABC):
     """
     GraphProcessor base class, to define the API for a graph processing pipeline.
+    Process a single graph at once.
     """
 
     @abstractmethod
@@ -998,3 +1002,22 @@ class GraphProcessor(ABC):
             highlighted_nodes=highlights_with_location
         )
         raise RuntimeError(message)
+
+
+class MultiGraphProcessor(GraphProcessor):
+    """
+    MultiGraphProcessor base class, to define the API for a multiple graph processing pipeline.
+    Processes multiple graphs at once.
+    """
+
+    @abstractmethod
+    def apply_many(self, graphs: Dict[str, Graph]):
+        """
+        Process the graphs.
+        """
+
+    def apply(self, graph: Graph):
+        """
+        Process a single graph.
+        """
+        return self.apply_many({"main": graph})

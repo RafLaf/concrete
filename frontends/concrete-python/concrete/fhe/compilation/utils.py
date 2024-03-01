@@ -23,6 +23,7 @@ from .specs import ClientSpecs
 def validate_input_args(
     client_specs: ClientSpecs,
     *args: Optional[Union[int, np.ndarray, List]],
+    circuit_name: str = "main",
 ) -> List[Optional[Union[int, np.ndarray]]]:
     """Validate input arguments.
 
@@ -31,11 +32,13 @@ def validate_input_args(
             client specification
         *args (Optional[Union[int, np.ndarray, List]]):
             argument(s) for evaluation
+        circuit_name (str): name of the circuit to verify
 
     Returns:
         List[Optional[Union[int, np.ndarray]]]: ordered validated args
     """
-    client_parameters_json = json.loads(client_specs.client_parameters.serialize())["circuits"][0]
+    circuits_parameters = json.loads(client_specs.client_parameters.serialize())["circuits"]
+    client_parameters_json = next(filter(lambda x: x["name"] == circuit_name, circuits_parameters))
     assert "inputs" in client_parameters_json
     input_specs = client_parameters_json["inputs"]
     if len(args) != len(input_specs):

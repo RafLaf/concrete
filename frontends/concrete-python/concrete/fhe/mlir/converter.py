@@ -19,7 +19,7 @@ from mlir.ir import Location as MlirLocation
 from mlir.ir import Module as MlirModule
 
 from ..compilation.configuration import Configuration, Exactness
-from ..representation import Graph, Node, Operation
+from ..representation import Graph, GraphProcessor, MultiGraphProcessor, Node, Operation
 from .context import Context
 from .conversion import Conversion
 from .processors import *  # pylint: disable=wildcard-import
@@ -33,11 +33,78 @@ class Converter:
     Converter class, to convert a computation graph to MLIR.
     """
 
+    def convert_many(
+        self,
+        graphs: Dict[str, Graph],
+        configuration: Configuration,
+        mlir_context: MlirContext,
+    ) -> MlirModule:
+        """
+        Convert multiple computation graphs to an MLIR module.
+
+        Args:
+            graphs (Dict[str, Graph]):
+                graphs to convert
+
+            configuration (Configuration):
+                configuration to use
+
+            mlir_context (MlirContext):
+                MLIR Context to use for module generation
+
+        Return:
+            MlirModule:
+                In-memory MLIR module corresponding to the graph
+        """
+        self.process(graphs, configuration)
+
+        with mlir_context as context, MlirLocation.unknown():
+            concrete.lang.register_dialects(context)  # pylint: disable=no-member
+
+            module = MlirModule.create()
+            with MlirInsertionPoint(module.body):
+                for name, graph in graphs.items():
+                    ctx = Context(context, graph, configuration)
+
+                    input_types = [ctx.typeof(node).mlir for node in graph.ordered_inputs()]
+
+                    @func.FuncOp.from_py_func(*input_types, name=name)
+                    def main(*args):
+                        for index, node in enumerate(graph.ordered_inputs()):
+                            conversion = Conversion(node, args[index])
+                            if "original_bit_width" in node.properties:
+                                conversion.set_original_bit_width(
+                                    node.properties["original_bit_width"]
+                                )
+                            ctx.conversions[node] = conversion
+
+                        ordered_nodes = [
+                            node
+                            for node in nx.lexicographical_topological_sort(graph.graph)
+                            if node.operation != Operation.Input
+                        ]
+
+                        for progress_index, node in enumerate(ordered_nodes):
+                            self.trace_progress(configuration, progress_index, ordered_nodes)
+                            preds = [ctx.conversions[pred] for pred in graph.ordered_preds_of(node)]
+                            self.node(ctx, node, preds)
+                        self.trace_progress(configuration, len(ordered_nodes), ordered_nodes)
+
+                        outputs = []
+                        for node in graph.ordered_outputs():
+                            assert node in ctx.conversions
+                            outputs.append(ctx.conversions[node].result)
+
+                        return tuple(outputs)
+
+        return module
+
     def convert(
         self,
         graph: Graph,
         configuration: Configuration,
         mlir_context: MlirContext,
+        name: str = "main",
     ) -> MlirModule:
         """
         Convert a computation graph to MLIR.
@@ -57,45 +124,7 @@ class Converter:
                 In-memory MLIR module corresponding to the graph
         """
 
-        self.process(graph, configuration)
-
-        with mlir_context as context, MlirLocation.unknown():
-            concrete.lang.register_dialects(context)  # pylint: disable=no-member
-
-            module = MlirModule.create()
-            with MlirInsertionPoint(module.body):
-                ctx = Context(context, graph, configuration)
-
-                input_types = [ctx.typeof(node).mlir for node in graph.ordered_inputs()]
-
-                @func.FuncOp.from_py_func(*input_types)
-                def main(*args):
-                    for index, node in enumerate(graph.ordered_inputs()):
-                        conversion = Conversion(node, args[index])
-                        if "original_bit_width" in node.properties:
-                            conversion.set_original_bit_width(node.properties["original_bit_width"])
-                        ctx.conversions[node] = conversion
-
-                    ordered_nodes = [
-                        node
-                        for node in nx.lexicographical_topological_sort(graph.graph)
-                        if node.operation != Operation.Input
-                    ]
-
-                    for progress_index, node in enumerate(ordered_nodes):
-                        self.trace_progress(configuration, progress_index, ordered_nodes)
-                        preds = [ctx.conversions[pred] for pred in graph.ordered_preds_of(node)]
-                        self.node(ctx, node, preds)
-                    self.trace_progress(configuration, len(ordered_nodes), ordered_nodes)
-
-                    outputs = []
-                    for node in graph.ordered_outputs():
-                        assert node in ctx.conversions
-                        outputs.append(ctx.conversions[node].result)
-
-                    return tuple(outputs)
-
-        return module
+        return self.convert_many({name: graph}, configuration, mlir_context)
 
     @staticmethod
     def stdout_with_ansi_support() -> bool:
@@ -172,13 +201,13 @@ class Converter:
             return
         concrete.lang.dialects.tracing.TraceMessageOp(msg=msg)  # pylint: disable=no-member
 
-    def process(self, graph: Graph, configuration: Configuration):
+    def process(self, graphs: Dict[str, Graph], configuration: Configuration):
         """
         Process a computation graph for MLIR conversion.
 
         Args:
-            graph (Graph):
-                graph to process
+            graph (Dict[str, Graph]):
+                graphs to process
 
             configuration (Configuration):
                 configuration to use
@@ -201,7 +230,13 @@ class Converter:
         ] + configuration.additional_processors
 
         for processor in pipeline:
-            processor.apply(graph)
+            if isinstance(processor, MultiGraphProcessor):
+                processor.apply_many(graphs)
+            elif isinstance(processor, GraphProcessor):
+                for graph in graphs.values():
+                    processor.apply(graph)
+            else:
+                raise RuntimeError("Unknown processor type.")
 
     def node(self, ctx: Context, node: Node, preds: List[Conversion]) -> Conversion:
         """

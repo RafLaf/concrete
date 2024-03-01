@@ -13,6 +13,7 @@ from .artifacts import DebugArtifacts
 from .circuit import Circuit
 from .compiler import Compiler, EncryptionStatus
 from .configuration import Configuration
+from .program_compiler import CircuitDef, ProgramCompiler
 
 
 def circuit(
@@ -22,7 +23,7 @@ def circuit(
     **kwargs,
 ):
     """
-    Provide a direct interface for compilation.
+    Provide a direct interface for compilation of single circuit programs.
 
     Args:
         parameters (Mapping[str, Union[str, EncryptionStatus]]):
@@ -66,18 +67,91 @@ def circuit(
                 if is_value
                 else ValueDescription(deepcopy(annotation.dtype), shape=(), is_encrypted=False)
             )
-
-            status = EncryptionStatus(parameters[name].lower())
-            parameter_values[name].is_encrypted = status == "encrypted"
-
-        return Compiler.assemble(function, parameter_values, configuration, artifacts, **kwargs)
+        print(inspect.getmembers_static(classs))
 
     return decoration
 
 
+class Compilable:
+    """
+    Compilable class, to wrap a function and provide methods to trace and compile it.
+    """
+
+    function: Callable
+    compiler: Compiler
+
+    def __init__(self, function: Callable, parameters):
+        self.function = function  # type: ignore
+        self.compiler = Compiler(self.function, dict(parameters))
+
+    def __call__(self, *args, **kwargs) -> Any:
+        self.compiler(*args, **kwargs)
+        return self.function(*args, **kwargs)
+
+    def trace(
+        self,
+        inputset: Optional[Union[Iterable[Any], Iterable[Tuple[Any, ...]]]] = None,
+        configuration: Optional[Configuration] = None,
+        artifacts: Optional[DebugArtifacts] = None,
+        **kwargs,
+    ) -> Graph:
+        """
+        Trace the function into computation graph.
+
+        Args:
+            inputset (Optional[Union[Iterable[Any], Iterable[Tuple[Any, ...]]]]):
+                optional inputset to extend accumulated inputset before bounds measurement
+
+            configuration(Optional[Configuration], default = None):
+                configuration to use
+
+            artifacts (Optional[DebugArtifacts], default = None):
+                artifacts to store information about the process
+
+            kwargs (Dict[str, Any]):
+                configuration options to overwrite
+
+        Returns:
+            Graph:
+                computation graph representing the function prior to MLIR conversion
+        """
+
+        return self.compiler.trace(inputset, configuration, artifacts, **kwargs)
+
+    def compile(
+        self,
+        inputset: Optional[Union[Iterable[Any], Iterable[Tuple[Any, ...]]]] = None,
+        configuration: Optional[Configuration] = None,
+        artifacts: Optional[DebugArtifacts] = None,
+        **kwargs,
+    ) -> Circuit:
+        """
+        Compile the function into a circuit.
+
+        Args:
+            inputset (Optional[Union[Iterable[Any], Iterable[Tuple[Any, ...]]]]):
+                optional inputset to extend accumulated inputset before bounds measurement
+
+            configuration(Optional[Configuration], default = None):
+                configuration to use
+
+            artifacts (Optional[DebugArtifacts], default = None):
+                artifacts to store information about the process
+
+            kwargs (Dict[str, Any]):
+                configuration options to overwrite
+
+        Returns:
+            Circuit:
+                compiled circuit
+        """
+
+        return self.compiler.compile(inputset, configuration, artifacts, **kwargs)
+
+
 def compiler(parameters: Mapping[str, Union[str, EncryptionStatus]]):
     """
-    Provide an easy interface for compilation.
+    Provides an easy interface for the compilation of single-circuit programs.
 
     Args:
         parameters (Mapping[str, Union[str, EncryptionStatus]]):
@@ -85,82 +159,37 @@ def compiler(parameters: Mapping[str, Union[str, EncryptionStatus]]):
     """
 
     def decoration(function: Callable):
-        class Compilable:
-            """
-            Compilable class, to wrap a function and provide methods to trace and compile it.
-            """
+        return Compilable(function, parameters)
 
-            function: Callable
-            compiler: Compiler
+    return decoration
 
-            def __init__(self, function: Callable):
-                self.function = function  # type: ignore
-                self.compiler = Compiler(self.function, dict(parameters))
 
-            def __call__(self, *args, **kwargs) -> Any:
-                self.compiler(*args, **kwargs)
-                return self.function(*args, **kwargs)
+def program():
+    """
+    Provides an easy interface for the compilation of multi-circuit programs.
+    """
 
-            def trace(
-                self,
-                inputset: Optional[Union[Iterable[Any], Iterable[Tuple[Any, ...]]]] = None,
-                configuration: Optional[Configuration] = None,
-                artifacts: Optional[DebugArtifacts] = None,
-                **kwargs,
-            ) -> Graph:
-                """
-                Trace the function into computation graph.
+    def decoration(classs):
+        circuits = inspect.getmembers_static(classs, lambda x: isinstance(x, CircuitDef))
+        if not circuits:
+            raise RuntimeError("Tried to define a program without any @fhe.circuits")
+        circuits_map = {name: circ for (name, circ) in circuits}
+        returned = ProgramCompiler(circuits_map)
+        return returned
 
-                Args:
-                    inputset (Optional[Union[Iterable[Any], Iterable[Tuple[Any, ...]]]]):
-                        optional inputset to extend accumulated inputset before bounds measurement
+    return decoration
 
-                    configuration(Optional[Configuration], default = None):
-                        configuration to use
 
-                    artifacts (Optional[DebugArtifacts], default = None):
-                        artifacts to store information about the process
+def circuit(parameters: Mapping[str, Union[str, EncryptionStatus]]):
+    """
+    Provides an easy interface to define a circuit within a multi-circuit program.
 
-                    kwargs (Dict[str, Any]):
-                        configuration options to overwrite
+    Args:
+        parameters (Mapping[str, Union[str, EncryptionStatus]]):
+            encryption statuses of the parameters of the function to compile
+    """
 
-                Returns:
-                    Graph:
-                        computation graph representing the function prior to MLIR conversion
-                """
-
-                return self.compiler.trace(inputset, configuration, artifacts, **kwargs)
-
-            def compile(
-                self,
-                inputset: Optional[Union[Iterable[Any], Iterable[Tuple[Any, ...]]]] = None,
-                configuration: Optional[Configuration] = None,
-                artifacts: Optional[DebugArtifacts] = None,
-                **kwargs,
-            ) -> Circuit:
-                """
-                Compile the function into a circuit.
-
-                Args:
-                    inputset (Optional[Union[Iterable[Any], Iterable[Tuple[Any, ...]]]]):
-                        optional inputset to extend accumulated inputset before bounds measurement
-
-                    configuration(Optional[Configuration], default = None):
-                        configuration to use
-
-                    artifacts (Optional[DebugArtifacts], default = None):
-                        artifacts to store information about the process
-
-                    kwargs (Dict[str, Any]):
-                        configuration options to overwrite
-
-                Returns:
-                    Circuit:
-                        compiled circuit
-                """
-
-                return self.compiler.compile(inputset, configuration, artifacts, **kwargs)
-
-        return Compilable(function)
+    def decoration(function: Callable):
+        return CircuitDef(function, parameters)
 
     return decoration

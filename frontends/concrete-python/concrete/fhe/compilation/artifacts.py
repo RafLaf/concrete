@@ -14,29 +14,21 @@ from ..representation import Graph
 DEFAULT_OUTPUT_DIRECTORY: Path = Path(".artifacts")
 
 
-class DebugArtifacts:
+class CircuitDebugArtifacts:
     """
-    DebugArtifacts class, to export information about the compilation process.
+    An object containing debug artifacts for a certain circuit in a multi-circuit program.
     """
-
-    output_directory: Path
 
     source_code: Optional[str]
     parameter_encryption_statuses: Dict[str, str]
     textual_representations_of_graphs: Dict[str, List[str]]
     final_graph: Optional[Graph]
-    mlir_to_compile: Optional[str]
-    client_parameters: Optional[bytes]
 
-    def __init__(self, output_directory: Union[str, Path] = DEFAULT_OUTPUT_DIRECTORY):
-        self.output_directory = Path(output_directory)
-
+    def __init__(self):
         self.source_code = None
         self.parameter_encryption_statuses = {}
         self.textual_representations_of_graphs = {}
         self.final_graph = None
-        self.mlir_to_compile = None
-        self.client_parameters = None
 
     def add_source_code(self, function: Union[str, Callable]):
         """
@@ -46,7 +38,6 @@ class DebugArtifacts:
             function (Union[str, Callable]):
                 either the source code of the function or the function itself
         """
-
         try:
             self.source_code = (
                 function if isinstance(function, str) else inspect.getsource(function)
@@ -65,7 +56,6 @@ class DebugArtifacts:
             encryption_status (str):
                 encryption status of the parameter
         """
-
         self.parameter_encryption_statuses[name] = encryption_status
 
     def add_graph(self, name: str, graph: Graph):
@@ -79,14 +69,32 @@ class DebugArtifacts:
             graph (Graph):
                 a representation of the function being compiled
         """
-
         if name not in self.textual_representations_of_graphs:
             self.textual_representations_of_graphs[name] = []
-
         textual_representation = graph.format()
         self.textual_representations_of_graphs[name].append(textual_representation)
-
         self.final_graph = graph
+
+
+class ProgramDebugArtifacts:
+    """
+    An object containing debug artifacts for a whole multi-circuit program.
+    """
+
+    output_directory: Path
+    mlir_to_compile: Optional[str]
+    client_parameters: Optional[bytes]
+    circuits: Dict[str, CircuitDebugArtifacts]
+
+    def __init__(
+        self,
+        circuit_names: List[str],
+        output_directory: Union[str, Path] = DEFAULT_OUTPUT_DIRECTORY,
+    ):
+        self.output_directory = Path(output_directory)
+        self.mlir_to_compile = None
+        self.client_parameters = None
+        self.circuits = {name: CircuitDebugArtifacts() for name in circuit_names}
 
     def add_mlir_to_compile(self, mlir: str):
         """
@@ -96,7 +104,6 @@ class DebugArtifacts:
             mlir (str):
                 textual representation of the resulting MLIR
         """
-
         self.mlir_to_compile = mlir
 
     def add_client_parameters(self, client_parameters: bytes):
@@ -113,7 +120,6 @@ class DebugArtifacts:
         """
         Export the collected information to `self.output_directory`.
         """
-
         # pylint: disable=too-many-branches
 
         output_directory = self.output_directory
@@ -164,27 +170,35 @@ class DebugArtifacts:
 
                 f.write(f"{name}=={version}\n")
 
-        if self.source_code is not None:
-            with open(output_directory.joinpath("function.txt"), "w", encoding="utf-8") as f:
-                f.write(self.source_code)
+        for circuit_name, circuit in self.circuits.items():
+            if circuit.source_code is not None:
+                with open(
+                    output_directory.joinpath(f"{circuit_name}.txt"), "w", encoding="utf-8"
+                ) as f:
+                    f.write(circuit.source_code)
 
-        if len(self.parameter_encryption_statuses) > 0:
-            with open(output_directory.joinpath("parameters.txt"), "w", encoding="utf-8") as f:
-                for name, parameter in self.parameter_encryption_statuses.items():
-                    f.write(f"{name} :: {parameter}\n")
+            if len(circuit.parameter_encryption_statuses) > 0:
+                with open(
+                    output_directory.joinpath(f"{circuit_name}.parameters.txt"),
+                    "w",
+                    encoding="utf-8",
+                ) as f:
+                    for name, parameter in self.parameter_encryption_statuses.items():
+                        f.write(f"{name} :: {parameter}\n")
 
-        identifier = 0
+            identifier = 0
 
-        textual_representations = self.textual_representations_of_graphs.items()
-        for name, representations in textual_representations:
-            for representation in representations:
-                identifier += 1
-                output_path = output_directory.joinpath(f"{identifier}.{name}.graph.txt")
-                with open(output_path, "w", encoding="utf-8") as f:
-                    f.write(f"{representation}\n")
+            textual_representations = circuit.textual_representations_of_graphs.items()
+            for name, representations in textual_representations:
+                for representation in representations:
+                    identifier += 1
+                    output_path = output_directory.joinpath(
+                        f"{circuit_name}.{identifier}.{name}.graph.txt"
+                    )
+                    with open(output_path, "w", encoding="utf-8") as f:
+                        f.write(f"{representation}\n")
 
         if self.mlir_to_compile is not None:
-            assert self.final_graph is not None
             with open(output_directory.joinpath("mlir.txt"), "w", encoding="utf-8") as f:
                 f.write(f"{self.mlir_to_compile}\n")
 
@@ -193,3 +207,83 @@ class DebugArtifacts:
                 f.write(self.client_parameters)
 
         # pylint: enable=too-many-branches
+
+
+class DebugArtifacts:
+    """
+    DebugArtifacts class, to export information about the compilation process for single circuit
+    programs.
+    """
+
+    program_artifacts: ProgramDebugArtifacts
+
+    def __init__(self, output_directory: Union[str, Path] = DEFAULT_OUTPUT_DIRECTORY):
+        self.program_artifacts = ProgramDebugArtifacts(["main"], output_directory)
+
+    def add_source_code(self, function: Union[str, Callable]):
+        """
+        Add source code of the function being compiled.
+
+        Args:
+            function (Union[str, Callable]):
+                either the source code of the function or the function itself
+        """
+        self.program_artifacts.circuits["main"].add_source_code(function)
+
+    def add_parameter_encryption_status(self, name: str, encryption_status: str):
+        """
+        Add parameter encryption status of a parameter of the function being compiled.
+
+        Args:
+            name (str):
+                name of the parameter
+
+            encryption_status (str):
+                encryption status of the parameter
+        """
+
+        self.program_artifacts.circuits["main"].add_parameter_encryption_status(
+            name, encryption_status
+        )
+
+    def add_graph(self, name: str, graph: Graph):
+        """
+        Add a representation of the function being compiled.
+
+        Args:
+            name (str):
+                name of the graph (e.g., initial, optimized, final)
+
+            graph (Graph):
+                a representation of the function being compiled
+        """
+
+        self.program_artifacts.circuits["main"].add_graph(name, graph)
+
+    def add_mlir_to_compile(self, mlir: str):
+        """
+        Add textual representation of the resulting MLIR.
+
+        Args:
+            mlir (str):
+                textual representation of the resulting MLIR
+        """
+
+        self.program_artifacts.circuits.add_mlit_to_compile(mlir)
+
+    def add_client_parameters(self, client_parameters: bytes):
+        """
+        Add client parameters used.
+
+        Args:
+            client_parameters (bytes): client parameters
+        """
+
+        self.program_artifacts.add_client_parameters(client_parameters)
+
+    def export(self):
+        """
+        Export the collected information to `self.output_directory`.
+        """
+
+        self.program_artifacts.export()

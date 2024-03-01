@@ -28,7 +28,7 @@ from .compilation import (
     Server,
     Value,
 )
-from .compilation.decorators import circuit, compiler
+from .compilation.decorators import circuit, compiler, program
 from .extensions import (
     AutoRounder,
     AutoTruncator,
