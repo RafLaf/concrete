@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 
+# Remote old files
+git rm docs/dev/api/*.md
+
 # Make API doc files
-lazydocs --output-path="./docs/dev/api" --overview-file="README.md" --src-base-url="../../../" --no-watermark concrete --ignored-modules concrete.ml
+lazydocs --output-path="./docs/dev/api" --overview-file="README.md" --src-base-url="../../" --no-watermark frontends/concrete-python
 
 # Add the files in the summary
 FILES=$(cd docs && find dev/api -name "*.md")
