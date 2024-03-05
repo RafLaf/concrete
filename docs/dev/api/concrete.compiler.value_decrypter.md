@@ -39,7 +39,7 @@ Wrap the native C++ object.
 
 ---
 
-<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/compiler/value_decrypter.py#L55"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/compiler/value_decrypter.py#L53"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `decrypt`
 
@@ -68,11 +68,7 @@ Decrypt value.
 ### <kbd>method</kbd> `new`
 
 ```python
-new(
-    keyset: KeySet,
-    client_parameters: ClientParameters,
-    circuit_name: str = 'main'
-)
+new(keyset: KeySet, client_parameters: ClientParameters)
 ```
 
 Create a value decrypter. 

@@ -14,12 +14,15 @@ rm docs/dev/api/*.md
 
 set -e
 
-# Make a new fresh venv, and install the last CP there
+# Make a new fresh venv, and install the last public CP there (hence, the --isolated to not take
+# nightlies)
+rm -rf "$FRESH_DIRECTORY"
 mkdir "$FRESH_DIRECTORY"
 cd "$FRESH_DIRECTORY"
 python3 -m venv .venvtrash
 source .venvtrash/bin/activate
-pip install concrete-python lazydocs
+pip install concrete-python --index-url https://pypi.org/simple --isolated
+pip install lazydocs
 
 # Make API doc files
 .venvtrash/bin/lazydocs --output-path="../docs/dev/api" --overview-file="README.md" --src-base-url="../../" --no-watermark concrete

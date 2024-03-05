@@ -14,24 +14,12 @@ Declaration of `ProcessRounding` graph processor.
 ## <kbd>class</kbd> `ProcessRounding`
 ProcessRounding graph processor, to analyze rounding and support regular operations on it. 
 
-<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/fhe/mlir/processors/process_rounding.py#L24"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
-
-### <kbd>method</kbd> `__init__`
-
-```python
-__init__(rounding_exactness: Exactness)
-```
-
-
-
-
-
 
 
 
 ---
 
-<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/fhe/mlir/processors/process_rounding.py#L30"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/fhe/mlir/processors/process_rounding.py#L22"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `apply`
 
@@ -45,7 +33,7 @@ apply(graph: Graph)
 
 ---
 
-<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/fhe/mlir/processors/process_rounding.py#L49"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/fhe/mlir/processors/process_rounding.py#L36"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `process_predecessors`
 
@@ -57,7 +45,7 @@ Process predecessors of the rounding.
 
 ---
 
-<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/fhe/mlir/processors/process_rounding.py#L157"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/fhe/mlir/processors/process_rounding.py#L142"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `process_successors`
 
@@ -69,7 +57,7 @@ Process successors of the rounding.
 
 ---
 
-<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/fhe/mlir/processors/process_rounding.py#L87"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/fhe/mlir/processors/process_rounding.py#L72"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `replace_with_tlu`
 

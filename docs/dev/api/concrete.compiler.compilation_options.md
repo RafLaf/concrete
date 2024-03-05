@@ -43,7 +43,7 @@ Wrap the native Cpp object.
 
 ---
 
-<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/compiler/compilation_options.py#L394"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/compiler/compilation_options.py#L400"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `force_encoding`
 
@@ -72,7 +72,7 @@ Force the compiler to use a specific encoding.
 ### <kbd>method</kbd> `new`
 
 ```python
-new(backend=<Backend.CPU: 0>) → CompilationOptions
+new(function_name='main', backend=<Backend.CPU: 0>) → CompilationOptions
 ```
 
 Build a CompilationOptions. 
@@ -81,7 +81,7 @@ Build a CompilationOptions.
 
 **Args:**
  
- - <b>`backend`</b> (_Backend):  backend to use. 
+ - <b>`function_name`</b> (str, optional):  name of the entrypoint function. Defaults to "main". 
 
 
 
@@ -96,7 +96,7 @@ Build a CompilationOptions.
 
 ---
 
-<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/compiler/compilation_options.py#L309"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/compiler/compilation_options.py#L315"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_all_v0_parameter`
 
@@ -148,7 +148,7 @@ Set all the V0 parameters.
 
 ---
 
-<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/compiler/compilation_options.py#L77"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/compiler/compilation_options.py#L83"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_auto_parallelize`
 
@@ -172,7 +172,7 @@ Set option for auto parallelization.
 
 ---
 
-<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/compiler/compilation_options.py#L433"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/compiler/compilation_options.py#L439"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_batch_tfhe_ops`
 
@@ -196,7 +196,7 @@ Set flag that triggers the batching of scalar TFHE operations.
 
 ---
 
-<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/compiler/compilation_options.py#L64"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/compiler/compilation_options.py#L70"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_composable`
 
@@ -220,7 +220,7 @@ Set option for composition.
 
 ---
 
-<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/compiler/compilation_options.py#L103"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/compiler/compilation_options.py#L109"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_compress_evaluation_keys`
 
@@ -244,7 +244,7 @@ Set option for compression of evaluation keys.
 
 ---
 
-<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/compiler/compilation_options.py#L129"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/compiler/compilation_options.py#L135"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_dataflow_parallelize`
 
@@ -268,7 +268,7 @@ Set option for dataflow parallelization.
 
 ---
 
-<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/compiler/compilation_options.py#L186"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/compiler/compilation_options.py#L192"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_display_optimizer_choice`
 
@@ -292,7 +292,7 @@ Set display flag of optimizer choices.
 
 ---
 
-<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/compiler/compilation_options.py#L420"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/compiler/compilation_options.py#L426"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_emit_gpu_ops`
 
@@ -316,7 +316,7 @@ Set flag that allows gpu ops to be emitted.
 
 ---
 
-<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/compiler/compilation_options.py#L155"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/compiler/compilation_options.py#L161"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_funcname`
 
@@ -340,7 +340,7 @@ Set entrypoint function name.
 
 ---
 
-<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/compiler/compilation_options.py#L227"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/compiler/compilation_options.py#L233"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_global_p_error`
 
@@ -365,7 +365,7 @@ Set global error probability for the full circuit.
 
 ---
 
-<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/compiler/compilation_options.py#L90"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/compiler/compilation_options.py#L96"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_loop_parallelize`
 
@@ -389,7 +389,7 @@ Set option for loop parallelization.
 
 ---
 
-<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/compiler/compilation_options.py#L142"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/compiler/compilation_options.py#L148"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_optimize_concrete`
 
@@ -413,7 +413,7 @@ Set flag to enable/disable optimization of concrete intermediate representation.
 
 ---
 
-<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/compiler/compilation_options.py#L212"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/compiler/compilation_options.py#L218"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_optimizer_multi_parameter_strategy`
 
@@ -439,7 +439,7 @@ Set the strategy of the optimizer for multi-parameter.
 
 ---
 
-<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/compiler/compilation_options.py#L199"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/compiler/compilation_options.py#L205"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_optimizer_strategy`
 
@@ -463,7 +463,7 @@ Set the strategy of the optimizer.
 
 ---
 
-<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/compiler/compilation_options.py#L168"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/compiler/compilation_options.py#L174"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_p_error`
 
@@ -488,7 +488,7 @@ Set error probability for shared by each pbs.
 
 ---
 
-<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/compiler/compilation_options.py#L245"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/compiler/compilation_options.py#L251"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_security_level`
 
@@ -513,7 +513,7 @@ Set security level.
 
 ---
 
-<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/compiler/compilation_options.py#L259"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/compiler/compilation_options.py#L265"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_v0_parameter`
 
@@ -551,7 +551,7 @@ Set the basic V0 parameters.
 
 ---
 
-<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/compiler/compilation_options.py#L116"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/compiler/compilation_options.py#L122"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_verify_diagnostics`
 
@@ -575,7 +575,7 @@ Set option for diagnostics verification.
 
 ---
 
-<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/compiler/compilation_options.py#L407"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/compiler/compilation_options.py#L413"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `simulation`
 

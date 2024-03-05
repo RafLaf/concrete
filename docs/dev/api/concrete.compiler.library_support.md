@@ -59,7 +59,7 @@ Path where to store compilation artifacts.
 ```python
 compile(
     mlir_program: Union[str, Module],
-    options: CompilationOptions = <concrete.compiler.compilation_options.CompilationOptions object at 0x110bc2c80>,
+    options: CompilationOptions = <concrete.compiler.compilation_options.CompilationOptions object at 0x11292ec20>,
     compilation_context: Optional[CompilationContext] = None
 ) → LibraryCompilationResult
 ```
@@ -88,7 +88,7 @@ Compile an MLIR program using Concrete dialects into a library.
 
 ---
 
-<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/compiler/library_support.py#L356"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/compiler/library_support.py#L347"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `get_program_info_path`
 
@@ -106,7 +106,7 @@ Get the path where the program info file is expected to be.
 
 ---
 
-<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/compiler/library_support.py#L348"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/compiler/library_support.py#L339"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `get_shared_lib_path`
 
@@ -124,7 +124,7 @@ Get the path where the shared library is expected to be.
 
 ---
 
-<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/compiler/library_support.py#L189"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/compiler/library_support.py#L194"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `load_client_parameters`
 
@@ -156,14 +156,14 @@ Load the client parameters from the library compilation result.
 
 ---
 
-<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/compiler/library_support.py#L213"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/compiler/library_support.py#L218"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `load_compilation_feedback`
 
 ```python
 load_compilation_feedback(
     compilation_result: LibraryCompilationResult
-) → ProgramCompilationFeedback
+) → CompilationFeedback
 ```
 
 Load the compilation feedback from the compilation result. 
@@ -184,37 +184,34 @@ Load the compilation feedback from the compilation result.
 
 **Returns:**
  
- - <b>`ProgramCompilationFeedback`</b>:  the compilation feedback for the compiled program 
+ - <b>`CompilationFeedback`</b>:  the compilation feedback for the compiled program 
 
 ---
 
-<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/compiler/library_support.py#L235"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/compiler/library_support.py#L240"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `load_server_lambda`
 
 ```python
 load_server_lambda(
     library_compilation_result: LibraryCompilationResult,
-    simulation: bool,
-    circuit_name: str = 'main'
+    simulation: bool
 ) → LibraryLambda
 ```
 
-Load the server lambda for a given circuit from the library compilation result. 
+Load the server lambda from the library compilation result. 
 
 
 
 **Args:**
  
  - <b>`library_compilation_result`</b> (LibraryCompilationResult):  compilation result of the library 
- - <b>`simulation`</b> (bool):  use simulation for execution 
- - <b>`circuit_name`</b> (str):  name of the circuit to be loaded 
 
 
 
 **Raises:**
  
- - <b>`TypeError`</b>:  if library_compilation_result is not of type LibraryCompilationResult, if  circuit_name is not of type str or 
+ - <b>`TypeError`</b>:  if library_compilation_result is not of type LibraryCompilationResult 
 
 
 
@@ -273,10 +270,16 @@ Build a LibrarySupport.
 ### <kbd>method</kbd> `reload`
 
 ```python
-reload() → LibraryCompilationResult
+reload(func_name: str = 'main') → LibraryCompilationResult
 ```
 
 Reload the library compilation result from the output_dir_path. 
+
+
+
+**Args:**
+ 
+ - <b>`func_name`</b>:  entrypoint function name 
 
 
 
@@ -286,7 +289,7 @@ Reload the library compilation result from the output_dir_path.
 
 ---
 
-<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/compiler/library_support.py#L274"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/compiler/library_support.py#L265"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `server_call`
 
@@ -324,7 +327,7 @@ Call the library with public_arguments.
 
 ---
 
-<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/compiler/library_support.py#L315"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/compiler/library_support.py#L306"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `simulate`
 

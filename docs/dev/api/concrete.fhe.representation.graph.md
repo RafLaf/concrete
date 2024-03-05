@@ -12,12 +12,12 @@ Declaration of `Graph` class.
 
 ---
 
-<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/fhe/representation/graph.py#L26"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/fhe/representation/graph.py#L25"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ## <kbd>class</kbd> `Graph`
 Graph class, to represent computation graphs. 
 
-<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/fhe/representation/graph.py#L43"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/fhe/representation/graph.py#L42"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `__init__`
 
@@ -39,7 +39,7 @@ __init__(
 
 ---
 
-<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/fhe/representation/graph.py#L201"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/fhe/representation/graph.py#L200"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `draw`
 
@@ -73,7 +73,7 @@ That this function requires the python `pygraphviz` package which itself require
 
 ---
 
-<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/fhe/representation/graph.py#L79"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/fhe/representation/graph.py#L78"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `evaluate`
 
@@ -100,7 +100,7 @@ Perform the computation `Graph` represents and get resulting values for all node
 
 ---
 
-<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/fhe/representation/graph.py#L340"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/fhe/representation/graph.py#L339"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `format`
 
@@ -145,7 +145,7 @@ Get the textual representation of the `Graph`.
 
 ---
 
-<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/fhe/representation/graph.py#L576"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/fhe/representation/graph.py#L575"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `format_bit_width_assignments`
 
@@ -162,7 +162,7 @@ Get the textual representation of bit width assignments of the graph.
 
 ---
 
-<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/fhe/representation/graph.py#L559"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/fhe/representation/graph.py#L558"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `format_bit_width_constraints`
 
@@ -179,7 +179,7 @@ Get the textual representation of bit width constraints of the graph.
 
 ---
 
-<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/fhe/representation/graph.py#L910"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/fhe/representation/graph.py#L909"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `integer_range`
 
@@ -214,7 +214,7 @@ Only nodes after filtering will be used to calculate the result.
 
 ---
 
-<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/fhe/representation/graph.py#L860"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/fhe/representation/graph.py#L859"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `maximum_integer_bit_width`
 
@@ -252,7 +252,7 @@ Only nodes after filtering will be used to calculate the result.
 
 ---
 
-<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/fhe/representation/graph.py#L614"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/fhe/representation/graph.py#L613"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `measure_bounds`
 
@@ -290,7 +290,7 @@ e.g.,
 
 ---
 
-<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/fhe/representation/graph.py#L724"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/fhe/representation/graph.py#L723"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `ordered_inputs`
 
@@ -307,7 +307,7 @@ Get the input nodes of the `Graph`, ordered by their indices.
 
 ---
 
-<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/fhe/representation/graph.py#L735"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/fhe/representation/graph.py#L734"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `ordered_outputs`
 
@@ -324,7 +324,7 @@ Get the output nodes of the `Graph`, ordered by their indices.
 
 ---
 
-<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/fhe/representation/graph.py#L746"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/fhe/representation/graph.py#L745"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `ordered_preds_of`
 
@@ -346,7 +346,7 @@ Get predecessors of `node`, ordered by their indices.
 
 ---
 
-<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/fhe/representation/graph.py#L765"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/fhe/representation/graph.py#L764"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `prune_useless_nodes`
 
@@ -358,7 +358,7 @@ Remove unreachable nodes from the graph.
 
 ---
 
-<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/fhe/representation/graph.py#L781"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/fhe/representation/graph.py#L780"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `query_nodes`
 
@@ -396,7 +396,7 @@ Filters work like so:  str -> nodes without exact match is skipped  List[str] ->
 
 ---
 
-<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/fhe/representation/graph.py#L685"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/fhe/representation/graph.py#L684"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `update_with_bounds`
 
@@ -410,47 +410,5 @@ Update `ValueDescription`s within the `Graph` according to measured bounds.
 
 **Args:**
   bounds (Dict[Node, Dict[str, Union[np.integer, np.floating]]]):  bounds of each node in the `Graph` 
-
-
----
-
-<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/fhe/representation/graph.py#L967"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
-
-## <kbd>class</kbd> `GraphProcessor`
-GraphProcessor base class, to define the API for a graph processing pipeline. 
-
-
-
-
----
-
-<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/fhe/representation/graph.py#L972"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
-
-### <kbd>method</kbd> `apply`
-
-```python
-apply(graph: Graph)
-```
-
-Process the graph. 
-
----
-
-<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/fhe/representation/graph.py#L978"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
-
-### <kbd>method</kbd> `error`
-
-```python
-error(graph: Graph, highlights: Mapping[Node, Union[str, List[str]]])
-```
-
-Fail processing with an error. 
-
-
-
-**Args:**
-  graph (Graph):  graph being processed 
-
- highlights (Mapping[Node, Union[str, List[str]]]):  nodes to highlight along with messages 
 
 

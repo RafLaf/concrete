@@ -50,7 +50,6 @@
 - [`concrete.fhe.extensions.bits`](./concrete.fhe.extensions.bits.md#module-concretefheextensionsbits): Bit extraction extensions.
 - [`concrete.fhe.extensions.convolution`](./concrete.fhe.extensions.convolution.md#module-concretefheextensionsconvolution): Tracing and evaluation of convolution.
 - [`concrete.fhe.extensions.hint`](./concrete.fhe.extensions.hint.md#module-concretefheextensionshint): Declaration of hinting extensions, to provide more information to Concrete.
-- [`concrete.fhe.extensions.identity`](./concrete.fhe.extensions.identity.md#module-concretefheextensionsidentity): Declaration of `identity` extension.
 - [`concrete.fhe.extensions.maxpool`](./concrete.fhe.extensions.maxpool.md#module-concretefheextensionsmaxpool): Tracing and evaluation of maxpool.
 - [`concrete.fhe.extensions.multivariate`](./concrete.fhe.extensions.multivariate.md#module-concretefheextensionsmultivariate): Declaration of `multivariate` extension.
 - [`concrete.fhe.extensions.ones`](./concrete.fhe.extensions.ones.md#module-concretefheextensionsones): Declaration of `ones` and `one` functions, to simplify creation of encrypted ones.
@@ -67,7 +66,8 @@
 - [`concrete.fhe.mlir.context`](./concrete.fhe.mlir.context.md#module-concretefhemlircontext): Declaration of `Context` class.
 - [`concrete.fhe.mlir.conversion`](./concrete.fhe.mlir.conversion.md#module-concretefhemlirconversion): Declaration of `ConversionType` and `Conversion` classes.
 - [`concrete.fhe.mlir.converter`](./concrete.fhe.mlir.converter.md#module-concretefhemlirconverter): Declaration of `Converter` class.
-- [`concrete.fhe.mlir.processors`](./concrete.fhe.mlir.processors.md#module-concretefhemlirprocessors): All graph processors.
+- [`concrete.fhe.mlir.processors`](./concrete.fhe.mlir.processors.md#module-concretefhemlirprocessors): Declaration of `GraphProcessor` class.
+- [`concrete.fhe.mlir.processors.all`](./concrete.fhe.mlir.processors.all.md#module-concretefhemlirprocessorsall): All graph processors.
 - [`concrete.fhe.mlir.processors.assign_bit_widths`](./concrete.fhe.mlir.processors.assign_bit_widths.md#module-concretefhemlirprocessorsassign_bit_widths): Declaration of `AssignBitWidths` graph processor.
 - [`concrete.fhe.mlir.processors.check_integer_only`](./concrete.fhe.mlir.processors.check_integer_only.md#module-concretefhemlirprocessorscheck_integer_only): Declaration of `CheckIntegerOnly` graph processor.
 - [`concrete.fhe.mlir.processors.process_rounding`](./concrete.fhe.mlir.processors.process_rounding.md#module-concretefhemlirprocessorsprocess_rounding): Declaration of `ProcessRounding` graph processor.
@@ -97,8 +97,7 @@
 - [`client_parameters.ClientParameters`](./concrete.compiler.client_parameters.md#class-clientparameters): ClientParameters are public parameters used for key generation.
 - [`client_support.ClientSupport`](./concrete.compiler.client_support.md#class-clientsupport): Client interface for doing key generation and encryption.
 - [`compilation_context.CompilationContext`](./concrete.compiler.compilation_context.md#class-compilationcontext): Support class for compilation context.
-- [`compilation_feedback.CircuitCompilationFeedback`](./concrete.compiler.compilation_feedback.md#class-circuitcompilationfeedback): CircuitCompilationFeedback is a set of hint computed by the compiler engine for a circuit.
-- [`compilation_feedback.ProgramCompilationFeedback`](./concrete.compiler.compilation_feedback.md#class-programcompilationfeedback): CompilationFeedback is a set of hint computed by the compiler engine.
+- [`compilation_feedback.CompilationFeedback`](./concrete.compiler.compilation_feedback.md#class-compilationfeedback): CompilationFeedback is a set of hint computed by the compiler engine.
 - [`compilation_options.CompilationOptions`](./concrete.compiler.compilation_options.md#class-compilationoptions): CompilationOptions holds different flags and options of the compilation process.
 - [`evaluation_keys.EvaluationKeys`](./concrete.compiler.evaluation_keys.md#class-evaluationkeys): EvaluationKeys required for execution.
 - [`key_set.KeySet`](./concrete.compiler.key_set.md#class-keyset): KeySet stores the different keys required for an encrypted computation.
@@ -121,11 +120,9 @@
 - [`client.Client`](./concrete.fhe.compilation.client.md#class-client): Client class, which can be used to manage keys, encrypt arguments and decrypt results.
 - [`compiler.Compiler`](./concrete.fhe.compilation.compiler.md#class-compiler): Compiler class, to glue the compilation pipeline.
 - [`compiler.EncryptionStatus`](./concrete.fhe.compilation.compiler.md#class-encryptionstatus): EncryptionStatus enum, to represent encryption status of parameters.
-- [`configuration.ApproximateRoundingConfig`](./concrete.fhe.compilation.configuration.md#class-approximateroundingconfig): Controls the behavior of approximate rounding.
 - [`configuration.BitwiseStrategy`](./concrete.fhe.compilation.configuration.md#class-bitwisestrategy): BitwiseStrategy, to specify implementation preference for bitwise operations.
 - [`configuration.ComparisonStrategy`](./concrete.fhe.compilation.configuration.md#class-comparisonstrategy): ComparisonStrategy, to specify implementation preference for comparisons.
 - [`configuration.Configuration`](./concrete.fhe.compilation.configuration.md#class-configuration): Configuration class, to allow the compilation process to be customized.
-- [`configuration.Exactness`](./concrete.fhe.compilation.configuration.md#class-exactness): Exactness, to specify for specific operator the implementation preference (default and local).
 - [`configuration.MinMaxStrategy`](./concrete.fhe.compilation.configuration.md#class-minmaxstrategy): MinMaxStrategy, to specify implementation preference for minimum and maximum operations.
 - [`configuration.MultiParameterStrategy`](./concrete.fhe.compilation.configuration.md#class-multiparameterstrategy): MultiParamStrategy, to set optimization strategy for multi-parameter.
 - [`configuration.MultivariateStrategy`](./concrete.fhe.compilation.configuration.md#class-multivariatestrategy): MultivariateStrategy, to specify implementation preference for multivariate operations.
@@ -147,6 +144,7 @@
 - [`conversion.Conversion`](./concrete.fhe.mlir.conversion.md#class-conversion): Conversion class, to store MLIR operations with additional information.
 - [`conversion.ConversionType`](./concrete.fhe.mlir.conversion.md#class-conversiontype): ConversionType class, to make it easier to work with MLIR types.
 - [`converter.Converter`](./concrete.fhe.mlir.converter.md#class-converter): Converter class, to convert a computation graph to MLIR.
+- [`processors.GraphProcessor`](./concrete.fhe.mlir.processors.md#class-graphprocessor): GraphProcessor base class, to define the API for a graph processing pipeline.
 - [`assign_bit_widths.AdditionalConstraints`](./concrete.fhe.mlir.processors.assign_bit_widths.md#class-additionalconstraints): AdditionalConstraints class to customize bit-width assignment step easily.
 - [`assign_bit_widths.AssignBitWidths`](./concrete.fhe.mlir.processors.assign_bit_widths.md#class-assignbitwidths): AssignBitWidths graph processor, to assign proper bit-widths to be compatible with FHE.
 - [`check_integer_only.CheckIntegerOnly`](./concrete.fhe.mlir.processors.check_integer_only.md#class-checkintegeronly): CheckIntegerOnly graph processor, to make sure the graph only contains integer nodes.
@@ -158,7 +156,6 @@
 - [`evaluator.GenericTupleEvaluator`](./concrete.fhe.representation.evaluator.md#class-generictupleevaluator): GenericEvaluator class, to evaluate Operation.Generic nodes where args are packed in a tuple.
 - [`evaluator.InputEvaluator`](./concrete.fhe.representation.evaluator.md#class-inputevaluator): InputEvaluator class, to evaluate Operation.Input nodes.
 - [`graph.Graph`](./concrete.fhe.representation.graph.md#class-graph): Graph class, to represent computation graphs.
-- [`graph.GraphProcessor`](./concrete.fhe.representation.graph.md#class-graphprocessor): GraphProcessor base class, to define the API for a graph processing pipeline.
 - [`node.Node`](./concrete.fhe.representation.node.md#class-node): Node class, to represent computation in a computation graph.
 - [`operation.Operation`](./concrete.fhe.representation.operation.md#class-operation): Operation enum, to distinguish nodes within a computation graph.
 - [`tracer.Annotation`](./concrete.fhe.tracing.tracer.md#class-annotation): Base annotation for direct definition.
@@ -323,7 +320,6 @@
 - [`bits.bits`](./concrete.fhe.extensions.bits.md#function-bits): Extract bits of integers.
 - [`convolution.conv`](./concrete.fhe.extensions.convolution.md#function-conv): Trace and evaluate convolution operations.
 - [`hint.hint`](./concrete.fhe.extensions.hint.md#function-hint): Hint the compilation process about properties of a value.
-- [`identity.identity`](./concrete.fhe.extensions.identity.md#function-identity): Apply identity function to x.
 - [`maxpool.maxpool`](./concrete.fhe.extensions.maxpool.md#function-maxpool): Evaluate or trace MaxPool operation.
 - [`multivariate.multivariate`](./concrete.fhe.extensions.multivariate.md#function-multivariate): Wrap a multivariate function so that it is traced into a single generic node.
 - [`ones.one`](./concrete.fhe.extensions.ones.md#function-one): Create an encrypted scalar with the value of one.
