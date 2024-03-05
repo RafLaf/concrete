@@ -1,10 +1,29 @@
 #!/usr/bin/env bash
 
+# In this script, we:
+#   create a fresh directory
+#   create a fresh venv
+#   download the last CP
+#   make API docs for it
+#   git add the corresponding md files
+
+FRESH_DIRECTORY="tempdirectoryforapidocs"
+
 # Remote old files
-git rm docs/dev/api/*.md
+rm docs/dev/api/*.md
+
+set -e
+
+# Make a new fresh venv, and install the last CP there
+mkdir "$FRESH_DIRECTORY"
+cd "$FRESH_DIRECTORY"
+python3 -m venv .venvtrash
+source .venvtrash/bin/activate
+pip install concrete-python lazydocs
 
 # Make API doc files
-lazydocs --output-path="./docs/dev/api" --overview-file="README.md" --src-base-url="../../" --no-watermark frontends/concrete-python
+.venvtrash/bin/lazydocs --output-path="../docs/dev/api" --overview-file="README.md" --src-base-url="../../" --no-watermark concrete
+cd -
 
 # Add the files in the summary
 FILES=$(cd docs && find dev/api -name "*.md")
@@ -29,7 +48,15 @@ grep "<!-- auto-created, do not edit, end -->" $FINAL_FILE -A 100000 >> $NEW_FIN
 
 mv $NEW_FINAL_FILE $FINAL_FILE
 
-# New files?
-git add docs/dev/api/*.md
+rm -rf "$FRESH_DIRECTORY"
 
-echo "You might have new API-doc files to git push"
+# New files?
+echo "Warning. You might have new API-doc files to git add & push, don't forget"
+
+
+
+
+# FIXME: remove this once the PR has been merged once
+sed -i "" -e "s@https://github.com/zama-ai/concrete-compiler-internal/blob/main/LICENSE.txt@https://github.com/zama-ai/concrete/blob/main/LICENSE.txt@g" ./docs/dev/api/concrete.lang.dialects.md ./docs/dev/api/concrete.compiler.md ./docs/dev/api/concrete.lang.md
+
+

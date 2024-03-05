@@ -1,0 +1,71 @@
+<!-- markdownlint-disable -->
+
+<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/compiler/library_compilation_result.py#L0"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+
+# <kbd>module</kbd> `concrete.compiler.library_compilation_result`
+LibraryCompilationResult. 
+
+
+
+---
+
+<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/compiler/library_compilation_result.py#L15"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+
+## <kbd>class</kbd> `LibraryCompilationResult`
+LibraryCompilationResult holds the result of the library compilation. 
+
+<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/compiler/library_compilation_result.py#L18"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+
+### <kbd>method</kbd> `__init__`
+
+```python
+__init__(library_compilation_result: LibraryCompilationResult)
+```
+
+Wrap the native Cpp object. 
+
+
+
+**Args:**
+ 
+ - <b>`library_compilation_result`</b> (_LibraryCompilationResult):  object to wrap 
+
+
+
+**Raises:**
+ 
+ - <b>`TypeError`</b>:  if library_compilation_result is not of type _LibraryCompilationResult 
+
+
+
+
+---
+
+<a href="../../tempdirectoryforapidocs/.venvtrash/lib/python3.10/site-packages/concrete/compiler/library_compilation_result.py#L34"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+
+### <kbd>method</kbd> `new`
+
+```python
+new(output_dir_path: str) → LibraryCompilationResult
+```
+
+Build a LibraryCompilationResult at output_dir_path. 
+
+
+
+**Args:**
+ 
+ - <b>`output_dir_path`</b> (str):  path to the compilation artifacts 
+
+
+
+**Raises:**
+ 
+ - <b>`TypeError`</b>:  if output_dir_path is not of type str 
+
+
+
+**Returns:**
+ LibraryCompilationResult 
+
+
