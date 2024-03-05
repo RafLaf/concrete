@@ -1,0 +1,177 @@
+<!-- markdownlint-disable -->
+
+<a href="../../../../concrete-ml/.venv/lib/python3.9/site-packages/concrete/fhe/mlir/conversion.py#L0"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+
+# <kbd>module</kbd> `concrete.fhe.mlir.conversion`
+Declaration of `ConversionType` and `Conversion` classes. 
+
+**Global Variables**
+---------------
+- **SCALAR_INT_SEARCH_REGEX**
+- **SCALAR_EINT_SEARCH_REGEX**
+- **TENSOR_INT_SEARCH_REGEX**
+- **TENSOR_EINT_SEARCH_REGEX**
+
+
+---
+
+<a href="../../../../concrete-ml/.venv/lib/python3.9/site-packages/concrete/fhe/mlir/conversion.py#L25"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+
+## <kbd>class</kbd> `ConversionType`
+ConversionType class, to make it easier to work with MLIR types. 
+
+<a href="../../../../concrete-ml/.venv/lib/python3.9/site-packages/concrete/fhe/mlir/conversion.py#L37"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+
+### <kbd>method</kbd> `__init__`
+
+```python
+__init__(mlir: Type)
+```
+
+
+
+
+
+
+---
+
+#### <kbd>property</kbd> is_clear
+
+
+
+
+
+---
+
+#### <kbd>property</kbd> is_scalar
+
+
+
+
+
+---
+
+#### <kbd>property</kbd> is_tensor
+
+
+
+
+
+---
+
+#### <kbd>property</kbd> is_unsigned
+
+
+
+
+
+
+
+
+---
+
+<a href="../../../../concrete-ml/.venv/lib/python3.9/site-packages/concrete/fhe/mlir/conversion.py#L111"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+
+## <kbd>class</kbd> `Conversion`
+Conversion class, to store MLIR operations with additional information. 
+
+<a href="../../../../concrete-ml/.venv/lib/python3.9/site-packages/concrete/fhe/mlir/conversion.py#L123"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+
+### <kbd>method</kbd> `__init__`
+
+```python
+__init__(origin: Node, result: OpResult)
+```
+
+
+
+
+
+
+---
+
+#### <kbd>property</kbd> bit_width
+
+
+
+
+
+---
+
+#### <kbd>property</kbd> is_clear
+
+
+
+
+
+---
+
+#### <kbd>property</kbd> is_encrypted
+
+
+
+
+
+---
+
+#### <kbd>property</kbd> is_scalar
+
+
+
+
+
+---
+
+#### <kbd>property</kbd> is_signed
+
+
+
+
+
+---
+
+#### <kbd>property</kbd> is_tensor
+
+
+
+
+
+---
+
+#### <kbd>property</kbd> is_unsigned
+
+
+
+
+
+---
+
+#### <kbd>property</kbd> original_bit_width
+
+Get the original bit-width of the conversion. 
+
+If not explicitly set, defaults to the actual bit width. 
+
+---
+
+#### <kbd>property</kbd> shape
+
+
+
+
+
+
+
+---
+
+<a href="../../../../concrete-ml/.venv/lib/python3.9/site-packages/concrete/fhe/mlir/conversion.py#L131"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+
+### <kbd>method</kbd> `set_original_bit_width`
+
+```python
+set_original_bit_width(original_bit_width: int)
+```
+
+Set the original bit-width of the conversion. 
+
+
