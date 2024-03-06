@@ -4,93 +4,93 @@
 
 ## Modules
 
-- [`concrete.compiler`](./concrete.compiler.md#module-concretecompiler): Compiler submodule.
-- [`concrete.compiler.client_parameters`](./concrete.compiler.client_parameters.md#module-concretecompilerclient_parameters): Client parameters.
-- [`concrete.compiler.client_support`](./concrete.compiler.client_support.md#module-concretecompilerclient_support): Client support.
-- [`concrete.compiler.compilation_context`](./concrete.compiler.compilation_context.md#module-concretecompilercompilation_context): CompilationContext.
-- [`concrete.compiler.compilation_feedback`](./concrete.compiler.compilation_feedback.md#module-concretecompilercompilation_feedback): Compilation feedback.
-- [`concrete.compiler.compilation_options`](./concrete.compiler.compilation_options.md#module-concretecompilercompilation_options): CompilationOptions.
-- [`concrete.compiler.evaluation_keys`](./concrete.compiler.evaluation_keys.md#module-concretecompilerevaluation_keys): EvaluationKeys.
-- [`concrete.compiler.key_set`](./concrete.compiler.key_set.md#module-concretecompilerkey_set): KeySet.
-- [`concrete.compiler.key_set_cache`](./concrete.compiler.key_set_cache.md#module-concretecompilerkey_set_cache): KeySetCache.
-- [`concrete.compiler.lambda_argument`](./concrete.compiler.lambda_argument.md#module-concretecompilerlambda_argument): LambdaArgument.
-- [`concrete.compiler.library_compilation_result`](./concrete.compiler.library_compilation_result.md#module-concretecompilerlibrary_compilation_result): LibraryCompilationResult.
-- [`concrete.compiler.library_lambda`](./concrete.compiler.library_lambda.md#module-concretecompilerlibrary_lambda): LibraryLambda.
-- [`concrete.compiler.library_support`](./concrete.compiler.library_support.md#module-concretecompilerlibrary_support): LibrarySupport.
-- [`concrete.compiler.parameter`](./concrete.compiler.parameter.md#module-concretecompilerparameter): Parameter.
-- [`concrete.compiler.public_arguments`](./concrete.compiler.public_arguments.md#module-concretecompilerpublic_arguments): PublicArguments.
-- [`concrete.compiler.public_result`](./concrete.compiler.public_result.md#module-concretecompilerpublic_result): PublicResult.
-- [`concrete.compiler.simulated_value_decrypter`](./concrete.compiler.simulated_value_decrypter.md#module-concretecompilersimulated_value_decrypter): SimulatedValueDecrypter.
-- [`concrete.compiler.simulated_value_exporter`](./concrete.compiler.simulated_value_exporter.md#module-concretecompilersimulated_value_exporter): SimulatedValueExporter.
-- [`concrete.compiler.utils`](./concrete.compiler.utils.md#module-concretecompilerutils): Common utils for the compiler submodule.
-- [`concrete.compiler.value`](./concrete.compiler.value.md#module-concretecompilervalue): Value.
-- [`concrete.compiler.value_decrypter`](./concrete.compiler.value_decrypter.md#module-concretecompilervalue_decrypter): ValueDecrypter.
-- [`concrete.compiler.value_exporter`](./concrete.compiler.value_exporter.md#module-concretecompilervalue_exporter): ValueExporter.
-- [`concrete.compiler.wrapper`](./concrete.compiler.wrapper.md#module-concretecompilerwrapper): Wrapper for native Cpp objects.
-- [`concrete.fhe`](./concrete.fhe.md#module-concretefhe): Concrete.
-- [`concrete.fhe.compilation`](./concrete.fhe.compilation.md#module-concretefhecompilation): Glue the compilation process together.
-- [`concrete.fhe.compilation.artifacts`](./concrete.fhe.compilation.artifacts.md#module-concretefhecompilationartifacts): Declaration of `DebugArtifacts` class.
-- [`concrete.fhe.compilation.circuit`](./concrete.fhe.compilation.circuit.md#module-concretefhecompilationcircuit): Declaration of `Circuit` class.
-- [`concrete.fhe.compilation.client`](./concrete.fhe.compilation.client.md#module-concretefhecompilationclient): Declaration of `Client` class.
-- [`concrete.fhe.compilation.compiler`](./concrete.fhe.compilation.compiler.md#module-concretefhecompilationcompiler): Declaration of `Compiler` class.
-- [`concrete.fhe.compilation.configuration`](./concrete.fhe.compilation.configuration.md#module-concretefhecompilationconfiguration): Declaration of `Configuration` class.
-- [`concrete.fhe.compilation.decorators`](./concrete.fhe.compilation.decorators.md#module-concretefhecompilationdecorators): Declaration of `circuit` and `compiler` decorators.
-- [`concrete.fhe.compilation.keys`](./concrete.fhe.compilation.keys.md#module-concretefhecompilationkeys): Declaration of `Keys` class.
-- [`concrete.fhe.compilation.server`](./concrete.fhe.compilation.server.md#module-concretefhecompilationserver): Declaration of `Server` class.
-- [`concrete.fhe.compilation.specs`](./concrete.fhe.compilation.specs.md#module-concretefhecompilationspecs): Declaration of `ClientSpecs` class.
-- [`concrete.fhe.compilation.utils`](./concrete.fhe.compilation.utils.md#module-concretefhecompilationutils): Declaration of various functions and constants related to compilation.
-- [`concrete.fhe.compilation.value`](./concrete.fhe.compilation.value.md#module-concretefhecompilationvalue): Declaration of `Value` class.
-- [`concrete.fhe.dtypes`](./concrete.fhe.dtypes.md#module-concretefhedtypes): Define available data types and their semantics.
-- [`concrete.fhe.dtypes.base`](./concrete.fhe.dtypes.base.md#module-concretefhedtypesbase): Declaration of `BaseDataType` abstract class.
-- [`concrete.fhe.dtypes.float`](./concrete.fhe.dtypes.float.md#module-concretefhedtypesfloat): Declaration of `Float` class.
-- [`concrete.fhe.dtypes.integer`](./concrete.fhe.dtypes.integer.md#module-concretefhedtypesinteger): Declaration of `Integer` class.
-- [`concrete.fhe.dtypes.utils`](./concrete.fhe.dtypes.utils.md#module-concretefhedtypesutils): Declaration of various functions and constants related to data types.
-- [`concrete.fhe.extensions`](./concrete.fhe.extensions.md#module-concretefheextensions): Provide additional features that are not present in numpy.
-- [`concrete.fhe.extensions.array`](./concrete.fhe.extensions.array.md#module-concretefheextensionsarray): Declaration of `array` function, to simplify creation of encrypted arrays.
-- [`concrete.fhe.extensions.bits`](./concrete.fhe.extensions.bits.md#module-concretefheextensionsbits): Bit extraction extensions.
-- [`concrete.fhe.extensions.convolution`](./concrete.fhe.extensions.convolution.md#module-concretefheextensionsconvolution): Tracing and evaluation of convolution.
-- [`concrete.fhe.extensions.hint`](./concrete.fhe.extensions.hint.md#module-concretefheextensionshint): Declaration of hinting extensions, to provide more information to Concrete.
-- [`concrete.fhe.extensions.maxpool`](./concrete.fhe.extensions.maxpool.md#module-concretefheextensionsmaxpool): Tracing and evaluation of maxpool.
-- [`concrete.fhe.extensions.multivariate`](./concrete.fhe.extensions.multivariate.md#module-concretefheextensionsmultivariate): Declaration of `multivariate` extension.
-- [`concrete.fhe.extensions.ones`](./concrete.fhe.extensions.ones.md#module-concretefheextensionsones): Declaration of `ones` and `one` functions, to simplify creation of encrypted ones.
-- [`concrete.fhe.extensions.relu`](./concrete.fhe.extensions.relu.md#module-concretefheextensionsrelu): Declaration of `relu` extension.
-- [`concrete.fhe.extensions.round_bit_pattern`](./concrete.fhe.extensions.round_bit_pattern.md#module-concretefheextensionsround_bit_pattern): Declaration of `round_bit_pattern` function, to provide an interface for rounded table lookups.
-- [`concrete.fhe.extensions.table`](./concrete.fhe.extensions.table.md#module-concretefheextensionstable): Declaration of `LookupTable` class.
-- [`concrete.fhe.extensions.tag`](./concrete.fhe.extensions.tag.md#module-concretefheextensionstag): Declaration of `tag` context manager, to allow tagging certain nodes.
-- [`concrete.fhe.extensions.truncate_bit_pattern`](./concrete.fhe.extensions.truncate_bit_pattern.md#module-concretefheextensionstruncate_bit_pattern): Declaration of `truncate_bit_pattern` extension.
-- [`concrete.fhe.extensions.univariate`](./concrete.fhe.extensions.univariate.md#module-concretefheextensionsunivariate): Declaration of `univariate` function.
-- [`concrete.fhe.extensions.zeros`](./concrete.fhe.extensions.zeros.md#module-concretefheextensionszeros): Declaration of `zeros` and `zero` functions, to simplify creation of encrypted zeros.
-- [`concrete.fhe.internal`](./concrete.fhe.internal.md#module-concretefheinternal): Export functions that are used internally by other modules for common things (e.g., assertions).
-- [`concrete.fhe.internal.utils`](./concrete.fhe.internal.utils.md#module-concretefheinternalutils): Declaration of various functions and constants related to the entire project.
-- [`concrete.fhe.mlir`](./concrete.fhe.mlir.md#module-concretefhemlir): Provide `computation graph` to `mlir` functionality.
-- [`concrete.fhe.mlir.context`](./concrete.fhe.mlir.context.md#module-concretefhemlircontext): Declaration of `Context` class.
-- [`concrete.fhe.mlir.conversion`](./concrete.fhe.mlir.conversion.md#module-concretefhemlirconversion): Declaration of `ConversionType` and `Conversion` classes.
-- [`concrete.fhe.mlir.converter`](./concrete.fhe.mlir.converter.md#module-concretefhemlirconverter): Declaration of `Converter` class.
-- [`concrete.fhe.mlir.processors`](./concrete.fhe.mlir.processors.md#module-concretefhemlirprocessors): Declaration of `GraphProcessor` class.
-- [`concrete.fhe.mlir.processors.all`](./concrete.fhe.mlir.processors.all.md#module-concretefhemlirprocessorsall): All graph processors.
-- [`concrete.fhe.mlir.processors.assign_bit_widths`](./concrete.fhe.mlir.processors.assign_bit_widths.md#module-concretefhemlirprocessorsassign_bit_widths): Declaration of `AssignBitWidths` graph processor.
-- [`concrete.fhe.mlir.processors.check_integer_only`](./concrete.fhe.mlir.processors.check_integer_only.md#module-concretefhemlirprocessorscheck_integer_only): Declaration of `CheckIntegerOnly` graph processor.
-- [`concrete.fhe.mlir.processors.process_rounding`](./concrete.fhe.mlir.processors.process_rounding.md#module-concretefhemlirprocessorsprocess_rounding): Declaration of `ProcessRounding` graph processor.
-- [`concrete.fhe.mlir.utils`](./concrete.fhe.mlir.utils.md#module-concretefhemlirutils): Declaration of various functions and constants related to MLIR conversion.
-- [`concrete.fhe.representation`](./concrete.fhe.representation.md#module-concretefherepresentation): Define structures used to represent computation.
-- [`concrete.fhe.representation.evaluator`](./concrete.fhe.representation.evaluator.md#module-concretefherepresentationevaluator): Declaration of various `Evaluator` classes, to make graphs picklable.
-- [`concrete.fhe.representation.graph`](./concrete.fhe.representation.graph.md#module-concretefherepresentationgraph): Declaration of `Graph` class.
-- [`concrete.fhe.representation.node`](./concrete.fhe.representation.node.md#module-concretefherepresentationnode): Declaration of `Node` class.
-- [`concrete.fhe.representation.operation`](./concrete.fhe.representation.operation.md#module-concretefherepresentationoperation): Declaration of `Operation` enum.
-- [`concrete.fhe.representation.utils`](./concrete.fhe.representation.utils.md#module-concretefherepresentationutils): Declaration of various functions and constants related to representation of computation.
-- [`concrete.fhe.tracing`](./concrete.fhe.tracing.md#module-concretefhetracing): Provide `function` to `computation graph` functionality.
-- [`concrete.fhe.tracing.tracer`](./concrete.fhe.tracing.tracer.md#module-concretefhetracingtracer): Declaration of `Tracer` class.
-- [`concrete.fhe.tracing.typing`](./concrete.fhe.tracing.typing.md#module-concretefhetracingtyping): Declaration of type annotation.
-- [`concrete.fhe.values`](./concrete.fhe.values.md#module-concretefhevalues): Define the available values and their semantics.
-- [`concrete.fhe.values.scalar`](./concrete.fhe.values.scalar.md#module-concretefhevaluesscalar): Declaration of `ClearScalar` and `EncryptedScalar` wrappers.
-- [`concrete.fhe.values.tensor`](./concrete.fhe.values.tensor.md#module-concretefhevaluestensor): Declaration of `ClearTensor` and `EncryptedTensor` wrappers.
-- [`concrete.fhe.values.value_description`](./concrete.fhe.values.value_description.md#module-concretefhevaluesvalue_description): Declaration of `ValueDescription` class.
-- [`concrete.fhe.version`](./concrete.fhe.version.md#module-concretefheversion)
-- [`concrete.lang`](./concrete.lang.md#module-concretelang): Concretelang python module
-- [`concrete.lang.dialects`](./concrete.lang.dialects.md#module-concretelangdialects)
-- [`concrete.lang.dialects.fhe`](./concrete.lang.dialects.fhe.md#module-concretelangdialectsfhe): FHE dialect module
-- [`concrete.lang.dialects.fhelinalg`](./concrete.lang.dialects.fhelinalg.md#module-concretelangdialectsfhelinalg): FHELinalg dialect module
-- [`concrete.lang.dialects.tracing`](./concrete.lang.dialects.tracing.md#module-concretelangdialectstracing): Tracing dialect module
+- [`concrete.compiler`](./concrete.compiler.md): Compiler submodule.
+- [`concrete.compiler.client_parameters`](./concrete.compiler.client_parameters.md): Client parameters.
+- [`concrete.compiler.client_support`](./concrete.compiler.client_support.md): Client support.
+- [`concrete.compiler.compilation_context`](./concrete.compiler.compilation_context.md): CompilationContext.
+- [`concrete.compiler.compilation_feedback`](./concrete.compiler.compilation_feedback.md): Compilation feedback.
+- [`concrete.compiler.compilation_options`](./concrete.compiler.compilation_options.md): CompilationOptions.
+- [`concrete.compiler.evaluation_keys`](./concrete.compiler.evaluation_keys.md): EvaluationKeys.
+- [`concrete.compiler.key_set`](./concrete.compiler.key_set.md): KeySet.
+- [`concrete.compiler.key_set_cache`](./concrete.compiler.key_set_cache.md): KeySetCache.
+- [`concrete.compiler.lambda_argument`](./concrete.compiler.lambda_argument.md): LambdaArgument.
+- [`concrete.compiler.library_compilation_result`](./concrete.compiler.library_compilation_result.md): LibraryCompilationResult.
+- [`concrete.compiler.library_lambda`](./concrete.compiler.library_lambda.md): LibraryLambda.
+- [`concrete.compiler.library_support`](./concrete.compiler.library_support.md): LibrarySupport.
+- [`concrete.compiler.parameter`](./concrete.compiler.parameter.md): Parameter.
+- [`concrete.compiler.public_arguments`](./concrete.compiler.public_arguments.md): PublicArguments.
+- [`concrete.compiler.public_result`](./concrete.compiler.public_result.md): PublicResult.
+- [`concrete.compiler.simulated_value_decrypter`](./concrete.compiler.simulated_value_decrypter.md): SimulatedValueDecrypter.
+- [`concrete.compiler.simulated_value_exporter`](./concrete.compiler.simulated_value_exporter.md): SimulatedValueExporter.
+- [`concrete.compiler.utils`](./concrete.compiler.utils.md): Common utils for the compiler submodule.
+- [`concrete.compiler.value`](./concrete.compiler.value.md): Value.
+- [`concrete.compiler.value_decrypter`](./concrete.compiler.value_decrypter.md): ValueDecrypter.
+- [`concrete.compiler.value_exporter`](./concrete.compiler.value_exporter.md): ValueExporter.
+- [`concrete.compiler.wrapper`](./concrete.compiler.wrapper.md): Wrapper for native Cpp objects.
+- [`concrete.fhe`](./concrete.fhe.md): Concrete.
+- [`concrete.fhe.compilation`](./concrete.fhe.compilation.md): Glue the compilation process together.
+- [`concrete.fhe.compilation.artifacts`](./concrete.fhe.compilation.artifacts.md): Declaration of `DebugArtifacts` class.
+- [`concrete.fhe.compilation.circuit`](./concrete.fhe.compilation.circuit.md): Declaration of `Circuit` class.
+- [`concrete.fhe.compilation.client`](./concrete.fhe.compilation.client.md): Declaration of `Client` class.
+- [`concrete.fhe.compilation.compiler`](./concrete.fhe.compilation.compiler.md): Declaration of `Compiler` class.
+- [`concrete.fhe.compilation.configuration`](./concrete.fhe.compilation.configuration.md): Declaration of `Configuration` class.
+- [`concrete.fhe.compilation.decorators`](./concrete.fhe.compilation.decorators.md): Declaration of `circuit` and `compiler` decorators.
+- [`concrete.fhe.compilation.keys`](./concrete.fhe.compilation.keys.md): Declaration of `Keys` class.
+- [`concrete.fhe.compilation.server`](./concrete.fhe.compilation.server.md): Declaration of `Server` class.
+- [`concrete.fhe.compilation.specs`](./concrete.fhe.compilation.specs.md): Declaration of `ClientSpecs` class.
+- [`concrete.fhe.compilation.utils`](./concrete.fhe.compilation.utils.md): Declaration of various functions and constants related to compilation.
+- [`concrete.fhe.compilation.value`](./concrete.fhe.compilation.value.md): Declaration of `Value` class.
+- [`concrete.fhe.dtypes`](./concrete.fhe.dtypes.md): Define available data types and their semantics.
+- [`concrete.fhe.dtypes.base`](./concrete.fhe.dtypes.base.md): Declaration of `BaseDataType` abstract class.
+- [`concrete.fhe.dtypes.float`](./concrete.fhe.dtypes.float.md): Declaration of `Float` class.
+- [`concrete.fhe.dtypes.integer`](./concrete.fhe.dtypes.integer.md): Declaration of `Integer` class.
+- [`concrete.fhe.dtypes.utils`](./concrete.fhe.dtypes.utils.md): Declaration of various functions and constants related to data types.
+- [`concrete.fhe.extensions`](./concrete.fhe.extensions.md): Provide additional features that are not present in numpy.
+- [`concrete.fhe.extensions.array`](./concrete.fhe.extensions.array.md): Declaration of `array` function, to simplify creation of encrypted arrays.
+- [`concrete.fhe.extensions.bits`](./concrete.fhe.extensions.bits.md): Bit extraction extensions.
+- [`concrete.fhe.extensions.convolution`](./concrete.fhe.extensions.convolution.md): Tracing and evaluation of convolution.
+- [`concrete.fhe.extensions.hint`](./concrete.fhe.extensions.hint.md): Declaration of hinting extensions, to provide more information to Concrete.
+- [`concrete.fhe.extensions.maxpool`](./concrete.fhe.extensions.maxpool.md): Tracing and evaluation of maxpool.
+- [`concrete.fhe.extensions.multivariate`](./concrete.fhe.extensions.multivariate.md): Declaration of `multivariate` extension.
+- [`concrete.fhe.extensions.ones`](./concrete.fhe.extensions.ones.md): Declaration of `ones` and `one` functions, to simplify creation of encrypted ones.
+- [`concrete.fhe.extensions.relu`](./concrete.fhe.extensions.relu.md): Declaration of `relu` extension.
+- [`concrete.fhe.extensions.round_bit_pattern`](./concrete.fhe.extensions.round_bit_pattern.md): Declaration of `round_bit_pattern` function, to provide an interface for rounded table lookups.
+- [`concrete.fhe.extensions.table`](./concrete.fhe.extensions.table.md): Declaration of `LookupTable` class.
+- [`concrete.fhe.extensions.tag`](./concrete.fhe.extensions.tag.md): Declaration of `tag` context manager, to allow tagging certain nodes.
+- [`concrete.fhe.extensions.truncate_bit_pattern`](./concrete.fhe.extensions.truncate_bit_pattern.md): Declaration of `truncate_bit_pattern` extension.
+- [`concrete.fhe.extensions.univariate`](./concrete.fhe.extensions.univariate.md): Declaration of `univariate` function.
+- [`concrete.fhe.extensions.zeros`](./concrete.fhe.extensions.zeros.md): Declaration of `zeros` and `zero` functions, to simplify creation of encrypted zeros.
+- [`concrete.fhe.internal`](./concrete.fhe.internal.md).
+- [`concrete.fhe.internal.utils`](./concrete.fhe.internal.utils.md): Declaration of various functions and constants related to the entire project.
+- [`concrete.fhe.mlir`](./concrete.fhe.mlir.md): Provide `computation graph` to `mlir` functionality.
+- [`concrete.fhe.mlir.context`](./concrete.fhe.mlir.context.md): Declaration of `Context` class.
+- [`concrete.fhe.mlir.conversion`](./concrete.fhe.mlir.conversion.md): Declaration of `ConversionType` and `Conversion` classes.
+- [`concrete.fhe.mlir.converter`](./concrete.fhe.mlir.converter.md): Declaration of `Converter` class.
+- [`concrete.fhe.mlir.processors`](./concrete.fhe.mlir.processors.md): Declaration of `GraphProcessor` class.
+- [`concrete.fhe.mlir.processors.all`](./concrete.fhe.mlir.processors.all.md): All graph processors.
+- [`concrete.fhe.mlir.processors.assign_bit_widths`](./concrete.fhe.mlir.processors.assign_bit_widths.md): Declaration of `AssignBitWidths` graph processor.
+- [`concrete.fhe.mlir.processors.check_integer_only`](./concrete.fhe.mlir.processors.check_integer_only.md): Declaration of `CheckIntegerOnly` graph processor.
+- [`concrete.fhe.mlir.processors.process_rounding`](./concrete.fhe.mlir.processors.process_rounding.md): Declaration of `ProcessRounding` graph processor.
+- [`concrete.fhe.mlir.utils`](./concrete.fhe.mlir.utils.md): Declaration of various functions and constants related to MLIR conversion.
+- [`concrete.fhe.representation`](./concrete.fhe.representation.md): Define structures used to represent computation.
+- [`concrete.fhe.representation.evaluator`](./concrete.fhe.representation.evaluator.md): Declaration of various `Evaluator` classes, to make graphs picklable.
+- [`concrete.fhe.representation.graph`](./concrete.fhe.representation.graph.md): Declaration of `Graph` class.
+- [`concrete.fhe.representation.node`](./concrete.fhe.representation.node.md): Declaration of `Node` class.
+- [`concrete.fhe.representation.operation`](./concrete.fhe.representation.operation.md): Declaration of `Operation` enum.
+- [`concrete.fhe.representation.utils`](./concrete.fhe.representation.utils.md): Declaration of various functions and constants related to representation of computation.
+- [`concrete.fhe.tracing`](./concrete.fhe.tracing.md): Provide `function` to `computation graph` functionality.
+- [`concrete.fhe.tracing.tracer`](./concrete.fhe.tracing.tracer.md): Declaration of `Tracer` class.
+- [`concrete.fhe.tracing.typing`](./concrete.fhe.tracing.typing.md): Declaration of type annotation.
+- [`concrete.fhe.values`](./concrete.fhe.values.md): Define the available values and their semantics.
+- [`concrete.fhe.values.scalar`](./concrete.fhe.values.scalar.md): Declaration of `ClearScalar` and `EncryptedScalar` wrappers.
+- [`concrete.fhe.values.tensor`](./concrete.fhe.values.tensor.md): Declaration of `ClearTensor` and `EncryptedTensor` wrappers.
+- [`concrete.fhe.values.value_description`](./concrete.fhe.values.value_description.md): Declaration of `ValueDescription` class.
+- [`concrete.fhe.version`](./concrete.fhe.version.md)
+- [`concrete.lang`](./concrete.lang.md): Concretelang python module
+- [`concrete.lang.dialects`](./concrete.lang.dialects.md)
+- [`concrete.lang.dialects.fhe`](./concrete.lang.dialects.fhe.md): FHE dialect module
+- [`concrete.lang.dialects.fhelinalg`](./concrete.lang.dialects.fhelinalg.md): FHELinalg dialect module
+- [`concrete.lang.dialects.tracing`](./concrete.lang.dialects.tracing.md): Tracing dialect module
 
 ## Classes
 
