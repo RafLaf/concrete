@@ -1,0 +1,18 @@
+# Check that the documentation is up to date
+name: Check that the documentation is up to date
+
+on:
+    # Nightly Release @ 3AM after each work day
+    - cron: "0 3 * * 2-6"
+
+jobs:
+  check-doc:
+    name: Check that the documentation is up to date
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Check that the documentation is up to date
+        shell: bash
+        run: |
+          set +e
+
+          ./ci/scripts/make_apidocs.sh
