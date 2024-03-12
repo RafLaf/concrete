@@ -59,7 +59,7 @@ Path where to store compilation artifacts.
 ```python
 compile(
     mlir_program: Union[str, Module],
-    options: CompilationOptions = <concrete.compiler.compilation_options.CompilationOptions object at 0x1099dec20>,
+    options: CompilationOptions = <concrete.compiler.compilation_options.CompilationOptions object at 0x10f81ac20>,
     compilation_context: Optional[CompilationContext] = None
 ) → LibraryCompilationResult
 ```

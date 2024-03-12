@@ -66,4 +66,4 @@ sed -i"" -e "s@.md#module-.*)@.md)@g" docs/dev/api/README.md
 # FIXME: remove this once the PR has been merged once
 sed -i "" -e "s@https://github.com/zama-ai/concrete-compiler-internal/blob/main/LICENSE.txt@https://github.com/zama-ai/concrete/blob/main/LICENSE.txt@g" ./docs/dev/api/concrete.lang.dialects.md ./docs/dev/api/concrete.compiler.md ./docs/dev/api/concrete.lang.md
 
-
+echo "Successful end"

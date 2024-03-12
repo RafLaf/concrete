@@ -54,36 +54,7 @@
 * [Part I: Concrete - FHE compiler](https://www.zama.ai/post/zama-concrete-fully-homomorphic-encryption-compiler)
 * [Part II: The Architecture of Concrete](https://www.zama.ai/post/the-architecture-of-concrete-zama-fully-homomorphic-encryption-compiler-leveraging-mlir)
 
-## Explanations
-
-* [Frontend fusing](explanations/fusing.md)
-* [Compiler backend](explanations/backends/README.md)
-  * [Adding a new backend](explanations/backends/new\_backend.md)
-* [Optimizer](explanations/optimizer.md)
-* [MLIR FHE dialects](explanations/dialects.md)
-  * [FHELinalg dialect](explanations/FHELinalgDialect.md)
-  * [FHE dialect](explanations/FHEDialect.md)
-  * [TFHE dialect](explanations/TFHEDialect.md)
-  * [Concrete dialect](explanations/ConcreteDialect.md)
-  * [Tracing dialect](explanations/TracingDialect.md)
-  * [Runtime dialect](explanations/RTDialect.md)
-  * [SDFG dialect](explanations/SDFGDialect.md)
-* [Security](explanations/security\_curves.md)
-* [Call FHE circuits from other languages](explanations/call\_from\_other\_language.md)
-* [Project layout](explanations/layout.md)
-
-## Developer
-
-<<<<<<< HEAD
-* [Contributing](dev/contributing.md)
-* [Release note](https://github.com/zama-ai/concrete/releases)
-* [Feature request](https://github.com/zama-ai/concrete/issues/new?assignees=\&labels=feature\&projects=\&template=features.md)
-* [Bug report](https://github.com/zama-ai/concrete/issues/new?assignees=\&labels=bug%2C+triage\&projects=\&template=bug\_report.md)
-=======
-* [Contribute](dev/contributing.md)
-* [Project layout](dev/setup/layout.md)
-* [Compiler backend](dev/backends/README.md)
-    * [Adding a new backend](dev/backends/new_backend.md)
+## References
 * [API](dev/api/README.md)
   <!-- auto-created, do not edit, begin -->
   - [concrete.compiler.client_parameters.md](dev/api/concrete.compiler.client_parameters.md)
@@ -174,4 +145,28 @@
   - [concrete.lang.dialects.tracing.md](dev/api/concrete.lang.dialects.tracing.md)
   - [concrete.lang.md](dev/api/concrete.lang.md)
   <!-- auto-created, do not edit, end -->
->>>>>>> 7e8add56 (docs(compiler): adding API doc)
+
+## Explanations
+
+* [Frontend fusing](explanations/fusing.md)
+* [Compiler backend](explanations/backends/README.md)
+  * [Adding a new backend](explanations/backends/new\_backend.md)
+* [Optimizer](explanations/optimizer.md)
+* [MLIR FHE dialects](explanations/dialects.md)
+  * [FHELinalg dialect](explanations/FHELinalgDialect.md)
+  * [FHE dialect](explanations/FHEDialect.md)
+  * [TFHE dialect](explanations/TFHEDialect.md)
+  * [Concrete dialect](explanations/ConcreteDialect.md)
+  * [Tracing dialect](explanations/TracingDialect.md)
+  * [Runtime dialect](explanations/RTDialect.md)
+  * [SDFG dialect](explanations/SDFGDialect.md)
+* [Security](explanations/security\_curves.md)
+* [Call FHE circuits from other languages](explanations/call\_from\_other\_language.md)
+* [Project layout](explanations/layout.md)
+
+## Developer
+
+* [Contributing](dev/contributing.md)
+* [Release note](https://github.com/zama-ai/concrete/releases)
+* [Feature request](https://github.com/zama-ai/concrete/issues/new?assignees=\&labels=feature\&projects=\&template=features.md)
+* [Bug report](https://github.com/zama-ai/concrete/issues/new?assignees=\&labels=bug%2C+triage\&projects=\&template=bug\_report.md)
