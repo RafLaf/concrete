@@ -61,9 +61,19 @@ WHICH_PYTHON_VERSION=$(python3 --version | cut -f 2 -d " " | cut -f 1-2 -d ".")
 sed -i "" -e "s@../../$FRESH_DIRECTORY/.venvtrash/lib/python$WHICH_PYTHON_VERSION/site-packages/@../../../compilers/concrete-compiler/compiler/lib/Bindings/Python/@g" docs/dev/api/*.md
 
 # Fixing the links in README.md, which fails (missing .'s for some reason): remove the #headers
-sed -i"" -e "s@.md#module-.*)@.md)@g" docs/dev/api/README.md
-sed -i"" -e "s@.md#function-.*)@.md)@g" docs/dev/api/README.md
-sed -i"" -e "s@.md#class-.*)@.md)@g" docs/dev/api/README.md
+sed -i "" -e "s@.md#module-.*)@.md)@g" docs/dev/api/README.md
+sed -i "" -e "s@.md#function-.*)@.md)@g" docs/dev/api/README.md
+sed -i "" -e "s@.md#class-.*)@.md)@g" docs/dev/api/README.md
+
+# Removed the "object addresses" and "function addresses", since they are not constant
+sed -i "" -e "s@object at 0x[a-zA-z0-9]*@object at ADDRESS@g" docs/*.md
+sed -i "" -e "s@object at 0x[a-zA-z0-9]*@object at ADDRESS@g" docs/*/*.md
+sed -i "" -e "s@object at 0x[a-zA-z0-9]*@object at ADDRESS@g" docs/*/*/*.md
+
+sed -i "" -e "s@function Int at 0x[a-zA-z0-9]*@function Int at ADDRESS@g" docs/*.md
+sed -i "" -e "s@function Int at 0x[a-zA-z0-9]*@function Int at ADDRESS@g" docs/*/*.md
+sed -i "" -e "s@function Int at 0x[a-zA-z0-9]*@function Int at ADDRESS@g" docs/*/*/*.md
+
 
 # FIXME: remove this once the PR has been merged once
 sed -i "" -e "s@https://github.com/zama-ai/concrete-compiler-internal/blob/main/LICENSE.txt@https://github.com/zama-ai/concrete/blob/main/LICENSE.txt@g" ./docs/dev/api/concrete.lang.dialects.md ./docs/dev/api/concrete.compiler.md ./docs/dev/api/concrete.lang.md
