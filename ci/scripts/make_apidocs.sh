@@ -62,6 +62,8 @@ sed -i "" -e "s@../../$FRESH_DIRECTORY/.venvtrash/lib/python$WHICH_PYTHON_VERSIO
 
 # Fixing the links in README.md, which fails (missing .'s for some reason): remove the #headers
 sed -i"" -e "s@.md#module-.*)@.md)@g" docs/dev/api/README.md
+sed -i"" -e "s@.md#function-.*)@.md)@g" docs/dev/api/README.md
+sed -i"" -e "s@.md#class-.*)@.md)@g" docs/dev/api/README.md
 
 # FIXME: remove this once the PR has been merged once
 sed -i "" -e "s@https://github.com/zama-ai/concrete-compiler-internal/blob/main/LICENSE.txt@https://github.com/zama-ai/concrete/blob/main/LICENSE.txt@g" ./docs/dev/api/concrete.lang.dialects.md ./docs/dev/api/concrete.compiler.md ./docs/dev/api/concrete.lang.md
