@@ -5,9 +5,12 @@
 #   create a fresh venv
 #   download the last CP
 #   make API docs for it
-#   git add the corresponding md files
 
 FRESH_DIRECTORY="tempdirectoryforapidocs"
+
+# Keep a copy of the doc, to check changes
+rm -rf docs-copy
+cp -r docs docs-copy
 
 # Remote old files
 rm docs/dev/api/*.md
@@ -74,8 +77,19 @@ sed -i "" -e "s@function Int at 0x[a-zA-z0-9]*@function Int at ADDRESS@g" docs/*
 sed -i "" -e "s@function Int at 0x[a-zA-z0-9]*@function Int at ADDRESS@g" docs/*/*.md
 sed -i "" -e "s@function Int at 0x[a-zA-z0-9]*@function Int at ADDRESS@g" docs/*/*/*.md
 
-
 # FIXME: remove this once the PR has been merged once
 sed -i "" -e "s@https://github.com/zama-ai/concrete-compiler-internal/blob/main/LICENSE.txt@https://github.com/zama-ai/concrete/blob/main/LICENSE.txt@g" ./docs/dev/api/concrete.lang.dialects.md ./docs/dev/api/concrete.compiler.md ./docs/dev/api/concrete.lang.md
 
+# Was there changes?
+if diff -r docs docs-copy; then
+    echo ""
+else
+    echo "There is a difference in the docs, please commit the changes"
+    exit -1
+fi
+
+# If there were changes, the previous command will stop, thanks to set -e
+rm -rf docs-copy
+
 echo "Successful end"
+
